@@ -1,5 +1,6 @@
 import { Stack } from "expo-router";
 import { colors } from "@/styles/theme";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 import { useFonts, Rubik_600SemiBold, Rubik_400Regular, Rubik_500Medium, Rubik_700Bold, } from "@expo-google-fonts/rubik";
 
@@ -17,10 +18,14 @@ export default function Layout() {
         return <Loading />
     }
 
-    return <Stack 
-    screenOptions={{
-        headerShown: false, // "headerShown: false" -> tira o cabeçalho padrão da tela
-        contentStyle: { backgroundColor: colors.gray[100] },
-    }}
-    />
+    return ( 
+        <GestureHandlerRootView style={{ flex: 1 }}>
+            <Stack 
+                screenOptions={{
+                    headerShown: false, // "headerShown: false" -> tira o cabeçalho padrão da tela
+                    contentStyle: { backgroundColor: colors.gray[100] },
+                }}
+            />
+        </GestureHandlerRootView>
+    )
 }
